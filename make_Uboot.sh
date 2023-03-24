@@ -21,6 +21,7 @@ elif [ $1 == "astro" ]; then
     make -f $PWD/../Makefile.sdk DEPLOYDIR=$FIP_DEPLOYDIR_ROOT/u-boot DEVICETREE="stm32mp157c-astro" -j12 all
 
 elif [ $1 == "clean" ]; then
+    rm -rf $PWD/../build
     make -f $PWD/../Makefile.sdk clean
 fi
 
