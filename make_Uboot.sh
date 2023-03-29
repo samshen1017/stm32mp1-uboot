@@ -8,20 +8,14 @@ cd $UBOOT_DIR
 #设置编译器
 source $ENV_SET
 
-#设置FIP目录
-export FIP_DEPLOYDIR_ROOT=/home/isaac/mywork/github/FIP_artifacts-stm32mp1/FIP_artifacts
-
-if [ $1 == "all" ]; then
-    #编译所有目标板
-    make -f $PWD/../Makefile.sdk DEPLOYDIR=$FIP_DEPLOYDIR_ROOT/u-boot all
-
-elif [ $1 == "astro" ]; then
-    #编译定制板
-    # DEVICETREE="<devicetree1> <devicetree2>"
-    make -f $PWD/../Makefile.sdk DEPLOYDIR=$FIP_DEPLOYDIR_ROOT/u-boot DEVICETREE="stm32mp157c-astro" all
+if [ $1 == "debug" ]; then
+    unset -v CFLAGS LDFLAGS
+    make ARCH=arm CROSS_COMPILE=arm-ostl-linux-gnueabi- O="$PWD/../build" stm32mp157c_astro_defconfig
+    make ARCH=arm CROSS_COMPILE=arm-ostl-linux-gnueabi- O="$PWD/../build" DEVICE_TREE=stm32mp157c-astro all
 
 elif [ $1 == "clean" ]; then
-    make -f $PWD/../Makefile.sdk clean
+    make O="$PWD/../build" distclean
     rm -rf $PWD/../build
+    rm -rf $PWD/../deploy
 fi
 

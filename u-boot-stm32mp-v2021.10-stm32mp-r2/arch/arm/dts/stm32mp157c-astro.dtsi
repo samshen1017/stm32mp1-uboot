@@ -12,7 +12,7 @@
 / {
 	memory@c0000000 {
 		device_type = "memory";
-		reg = <0xC0000000 0x10000000>;
+		reg = <0xC0000000 0x20000000>;
 	};
 	reserved-memory {
 		#address-cells = <1>;
@@ -99,7 +99,7 @@
         regulator-always-on;
     };
 
-	v3v3: regulator-v3v3 {
+	v3v3: regulator-3p3v {
         compatible = "regulator-fixed";
         regulator-name = "v3v3";
         regulator-min-microvolt = <3300000>;
@@ -113,42 +113,6 @@
         regulator-name = "vdd_usb";
         regulator-min-microvolt = <3300000>;
         regulator-max-microvolt = <3300000>;
-        regulator-off-in-suspend;
-        regulator-always-on;
-    };
-
-	vdd_ddr: regulator-vdd-ddr {
-        compatible = "regulator-fixed";
-        regulator-name = "vdd_ddr";
-        regulator-min-microvolt = <1350000>;
-        regulator-max-microvolt = <1350000>;
-        regulator-off-in-suspend;
-        regulator-always-on;
-    };
-
-	vdda: regulator-vdda {
-        compatible = "regulator-fixed";
-        regulator-name = "vdda";
-        regulator-min-microvolt = <2900000>;
-        regulator-max-microvolt = <2900000>;
-        regulator-off-in-suspend;
-        regulator-always-on;
-    };
-
-	vtt_ddr: regulator-vtt-ddr {
-        compatible = "regulator-fixed";
-        regulator-name = "vtt_ddr";
-        regulator-min-microvolt = <500000>;
-        regulator-max-microvolt = <750000>;
-        regulator-off-in-suspend;
-        regulator-always-on;
-    };
-
-	v2v8: regulator-v2v8 {
-        compatible = "regulator-fixed";
-        regulator-name = "v2v8";
-        regulator-min-microvolt = <2800000>;
-        regulator-max-microvolt = <2800000>;
         regulator-off-in-suspend;
         regulator-always-on;
     };
