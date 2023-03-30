@@ -13,6 +13,11 @@ if [ $1 == "debug" ]; then
     make ARCH=arm CROSS_COMPILE=arm-ostl-linux-gnueabi- O="$PWD/../build" stm32mp157c_astro_defconfig
     make ARCH=arm CROSS_COMPILE=arm-ostl-linux-gnueabi- O="$PWD/../build" DEVICE_TREE=stm32mp157c-astro all
 
+elif [ $1 == "copy" ]; then
+    mkdir -p ../../image
+    cp ../build/u-boot-nodtb.bin ../../image
+    cp ../build/u-boot.dtb ../../image
+
 elif [ $1 == "clean" ]; then
     make O="$PWD/../build" distclean
     rm -rf $PWD/../build

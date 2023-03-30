@@ -12,8 +12,9 @@
 / {
 	memory@c0000000 {
 		device_type = "memory";
-		reg = <0xC0000000 0x20000000>;
+		reg = <0xC0000000 0x20000000>; /* 256Mb * 16bit = 512MB */
 	};
+
 	reserved-memory {
 		#address-cells = <1>;
 		#size-cells = <1>;
@@ -61,15 +62,15 @@
 			no-map;
 		};
 
-		optee@fe000000 {
-			reg = <0xfe000000 0x2000000>;
+		gpu_reserved: gpu@d4000000 {
+			reg = <0xd4000000 0x4000000>;
 			no-map;
 		};
 
-	};
-	
-	aliases {
-		serial8 = &uart8;
+		optee@de000000 {
+			reg = <0xde000000 0x2000000>;
+			no-map;
+		};
 	};
 
 	vin: vin {
@@ -140,6 +141,10 @@
 
 &dts {
 	status = "okay";
+};
+
+&gpu {
+	contiguous-area = <&gpu_reserved>;
 };
 
 &hash1 {
