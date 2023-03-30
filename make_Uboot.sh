@@ -8,7 +8,7 @@ cd $UBOOT_DIR
 #设置编译器
 source $ENV_SET
 
-if [ $1 == "debug" ]; then
+if [ $1 == "astro" ]; then
     unset -v CFLAGS LDFLAGS
     make ARCH=arm CROSS_COMPILE=arm-ostl-linux-gnueabi- O="$PWD/../build" stm32mp157c_astro_defconfig
     make ARCH=arm CROSS_COMPILE=arm-ostl-linux-gnueabi- O="$PWD/../build" DEVICE_TREE=stm32mp157c-astro all
