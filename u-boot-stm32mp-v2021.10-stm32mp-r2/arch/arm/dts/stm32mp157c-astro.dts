@@ -24,10 +24,6 @@
 	};
 };
 
-&cryp1 {
-	status = "okay";
-};
-
 &pinctrl {
 	uart8_pins_mx: uart8-mx {
 		pins1 {
