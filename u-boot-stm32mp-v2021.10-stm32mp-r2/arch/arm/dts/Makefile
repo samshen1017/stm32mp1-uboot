@@ -1095,7 +1095,6 @@ dtb-$(CONFIG_STM32MP15x) += \
 	stm32mp157c-ed1.dtb \
 	stm32mp157c-ev1.dtb \
 	stm32mp157c-odyssey.dtb \
-	stm32mp157c-astro.dtb \
 	stm32mp15xx-dhcom-drc02.dtb \
 	stm32mp157d-dk1.dtb \
 	stm32mp157d-ed1.dtb \
@@ -1105,7 +1104,9 @@ dtb-$(CONFIG_STM32MP15x) += \
 	stm32mp157f-ev1.dtb \
 	stm32mp15xx-dhcom-pdk2.dtb \
 	stm32mp15xx-dhcom-picoitx.dtb \
-	stm32mp15xx-dhcor-avenger96.dtb
+	stm32mp15xx-dhcor-avenger96.dtb \
+	stm32mp157c-astro.dtb \
+	stm32mp157d-openedv.dtb
 
 dtb-$(CONFIG_SOC_K3_AM6) += k3-am654-base-board.dtb k3-am654-r5-base-board.dtb
 dtb-$(CONFIG_SOC_K3_J721E) += k3-j721e-common-proc-board.dtb \
